@@ -7,13 +7,12 @@ import {
   faGlobe,
   faHeart,
 } from "@fortawesome/free-solid-svg-icons";
-import backgroundImage from "../assets/hintergrund.jpg"; // Import the image
 
 const locations = [
   {
     type: "Restaurant",
     name: "Sherep",
-    image: require("../assets/sherep.jpeg"),
+    image: "../../public/assets/sherep.jpeg",
     website:
       "https://www.tripadvisor.co.uk/Restaurant_Review-g293932-d13157535-Reviews-Sherep_Restaurant-Yerevan.html",
     googleMaps:
@@ -22,7 +21,7 @@ const locations = [
   {
     type: "Restaurant",
     name: "Seasons",
-    image: require("../assets/seasons.jpg"),
+    image: "../../public/assets/seasons.jpg",
     website:
       "https://www.tripadvisor.in/Restaurant_Review-g293932-d17639706-Reviews-Seasons_Restaurant-Yerevan.html",
     googleMaps:
@@ -31,7 +30,7 @@ const locations = [
   {
     type: "Restaurant",
     name: "Tavern Yerevan",
-    image: require("../assets/tavern_yerevan.jpg"),
+    image: "../../public/assets/tavern_yerevan.jpg",
     website:
       "https://www.tripadvisor.in/Restaurant_Review-g293932-d8800809-Reviews-Tavern_Yerevan-Yerevan.html",
     googleMaps:
@@ -40,7 +39,7 @@ const locations = [
   {
     type: "Restaurant",
     name: "Lavash",
-    image: require("../assets/lavash.jpg"),
+    image: "../../public/assets/lavash.jpg",
     website:
       "https://www.tripadvisor.in/Restaurant_Review-g293932-d12321316-Reviews-Lavash_Restaurant-Yerevan.html",
     googleMaps:
@@ -49,7 +48,7 @@ const locations = [
   {
     type: "Sightseeing",
     name: "Garni Temple",
-    image: require("../assets/garni.jpg"),
+    image: "../../public/assets/garni.jpg",
     website: "https://en.wikipedia.org/wiki/Temple_of_Garni",
     googleMaps:
       "https://www.google.com/maps/place/Garni+2215,+Armenia/@40.1243108,44.6696154,13z",
@@ -57,7 +56,7 @@ const locations = [
   {
     type: "Sightseeing",
     name: "Geghard Monastery",
-    image: require("../assets/geghard.jpg"),
+    image: "../../public/assets/geghard.jpg",
     website: "https://en.wikipedia.org/wiki/Geghard",
     googleMaps:
       "https://www.google.com/maps/place/Geghard,+Armenia/@40.1243108,44.6696154,13z",
@@ -115,7 +114,7 @@ const LocationsPage = () => {
             <FontAwesomeIcon
               icon={faHeart}
               color={"white"}
-              style={{ "margin-left": "10px" }}
+              style={{ marginLeft: "10px" }}
             />
           </FavoritesButton>
         </TopBar>

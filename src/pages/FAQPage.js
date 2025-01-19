@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Sidebar from "../components/Sidebar";
-import backgroundImage from "../assets/hintergrund.jpg"; // Import the image
 
 const FAQPage = () => {
   return (

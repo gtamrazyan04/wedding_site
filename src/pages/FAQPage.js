@@ -1,23 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import Sidebar from "../components/Sidebar";
 
 const FAQPage = () => {
   return (
     <PageContainer>
-      <Sidebar />
       <MainContent>
         <h1>FAQs</h1>
+        <h2>Transport & Unterkunft</h2>
         <ul>
           <li>
-            <strong>Wie komme ich vom Flughafen in meine Unterkunft?</strong>
-            <p>
-              Wir organisieren eine Abholung. Bitte teilt uns eure Ankunftszeit
-              mit.
-            </p>
-          </li>
-          <li>
-            <strong>Wo buche ich am besten eine Unterkunft?</strong>
+            <strong>👩‍💻 Wo buche ich am besten eine Unterkunft?</strong>
             <p>
               Wir empfehlen{" "}
               <a
@@ -33,12 +25,46 @@ const FAQPage = () => {
             </p>
           </li>
           <li>
+            <strong>🛬 Wie komme ich vom Flughafen in meine Unterkunft?</strong>
+            <p>
+              Wir organisieren eine Abholung. Bitte teilt uns eure Ankunftszeit
+              mit.
+            </p>
+          </li>
+          <li>
+            <strong>🚕 Welche Transportmittel sollte ich benutzen?</strong>
+            <p>
+              Am besten die{" "}
+              <a
+                href="https://yandex.com/support/yandex-app-android-alice/en/app/install"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Yandex App
+              </a>{" "}
+              herunterladen. Taxis können direkt über die App bestellt werden,
+              und ihr seht den Preis im Voraus. Meist kommt ein Taxi direkt
+              innert weniger Minuten, ihr seht auch immer den live Standort von
+              eurem Taxi, während ihr auf diesen wartet.
+            </p>
+          </li>
+        </ul>
+        <h2>Essen, Trinken & Kultur</h2>
+        <ul>
+          <li>
             <strong>
               🥘 Wie ist das Essen im Vergleich zur Mitteleuropäischen Küche?
             </strong>
             <p>
               Laut Oliver Angst ist das Essen in Armenien sehr nahe bei unserer
               Küche (auch nicht speziell scharf).
+            </p>
+          </li>
+          <li>
+            <strong>💧 Kann man Wasser vom Hahn trinken?</strong>
+            <p>
+              Ja! Meist hat es auf den Strassen auch Trinkbrunnen mit frischem
+              Wasser.
             </p>
           </li>
           <li>
@@ -55,6 +81,9 @@ const FAQPage = () => {
               Französisch sprechen.
             </p>
           </li>
+        </ul>
+        <h2>SIM-Karte, Währung, Preise</h2>
+        <ul>
           <li>
             <strong>
               📶 Gibt es lokale SIM-Karten oder mobile Datentarife?
@@ -92,29 +121,17 @@ const FAQPage = () => {
             </p>
           </li>
           <li>
-            <strong>🚕 Welche Transportmittel sollte ich benutzen?</strong>
+            <strong>Wie sind die Preise in Armenien?</strong>
             <p>
-              Am besten die{" "}
-              <a
-                href="https://yandex.com/apps"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Yandex App
-              </a>{" "}
-              herunterladen. Taxis können direkt über die App bestellt werden,
-              und ihr seht den Preis im Voraus. Meist kommt ein Taxi direkt
-              innert weniger Minuten, ihr seht auch immer den live Standort von
-              eurem Taxi, während ihr auf diesen wartet.
+              Im Vergleich zu der Schweiz sind die Preise in Armenien günstig -
+              aber auch nicht in allen Bereichen. Ein Coiffeurtermin lohnt sich
+              aber sehr😉, ein Frauenhaarschnitt (inkl. Waschen) kostet zwischen
+              5 und 10 Franken.
             </p>
           </li>
-          <li>
-            <strong>💧 Kann man Wasser vom Hahn trinken?</strong>
-            <p>
-              Ja! Meist hat es auf den Strassen auch Trinkbrunnen mit frischem
-              Wasser.
-            </p>
-          </li>
+        </ul>
+        <h2>Allgemeines</h2>
+        <ul>
           <li>
             <strong>☀️ Wie ist das Wetter in Armenien im August?</strong>
             <p>
@@ -133,15 +150,7 @@ const FAQPage = () => {
               auch ohne Rezepte (ohne Gewähr).
             </p>
           </li>
-          <li>
-            <strong>Wie sind die Preise in Armenien?</strong>
-            <p>
-              Im Vergleich zu der Schweiz sind die Preise in Armenien günstig -
-              aber auch nicht in allen Bereichen. Ein Coiffeurtermin lohnt sich
-              aber sehr😉, ein Frauenhaarschnitt (inkl. Waschen) kostet zwischen
-              5 und 10 Franken.
-            </p>
-          </li>
+
           <li>
             <strong>Wen kann ich bei Fragen kontaktieren?</strong>
             <p>
@@ -167,7 +176,6 @@ const PageContainer = styled.div`
 `;
 
 const MainContent = styled.div`
-  margin-left: 220px;
   padding: 20px;
 
   h1 {
@@ -175,6 +183,12 @@ const MainContent = styled.div`
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+    margin-top: 50px;
   }
 
   ul {

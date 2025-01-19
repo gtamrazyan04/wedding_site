@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Sidebar from "../components/Sidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMapMarkerAlt,
@@ -12,7 +11,7 @@ const locations = [
   {
     type: "Restaurant",
     name: "Sherep",
-    image: "../assets/sherep.jpeg",
+    image: "./assets/sherep.jpeg",
     website:
       "https://www.tripadvisor.co.uk/Restaurant_Review-g293932-d13157535-Reviews-Sherep_Restaurant-Yerevan.html",
     googleMaps:
@@ -21,7 +20,7 @@ const locations = [
   {
     type: "Restaurant",
     name: "Seasons",
-    image: "../assets/seasons.jpg",
+    image: "./assets/seasons.jpg",
     website:
       "https://www.tripadvisor.in/Restaurant_Review-g293932-d17639706-Reviews-Seasons_Restaurant-Yerevan.html",
     googleMaps:
@@ -30,7 +29,7 @@ const locations = [
   {
     type: "Restaurant",
     name: "Tavern Yerevan",
-    image: "../assets/tavern_yerevan.jpg",
+    image: "./assets/tavern_yerevan.jpg",
     website:
       "https://www.tripadvisor.in/Restaurant_Review-g293932-d8800809-Reviews-Tavern_Yerevan-Yerevan.html",
     googleMaps:
@@ -39,7 +38,7 @@ const locations = [
   {
     type: "Restaurant",
     name: "Lavash",
-    image: "../assets/lavash.jpg",
+    image: "./assets/lavash.jpg",
     website:
       "https://www.tripadvisor.in/Restaurant_Review-g293932-d12321316-Reviews-Lavash_Restaurant-Yerevan.html",
     googleMaps:
@@ -48,7 +47,7 @@ const locations = [
   {
     type: "Sightseeing",
     name: "Garni Temple",
-    image: "../assets/garni.jpg",
+    image: "./assets/garni.jpg",
     website: "https://en.wikipedia.org/wiki/Temple_of_Garni",
     googleMaps:
       "https://www.google.com/maps/place/Garni+2215,+Armenia/@40.1243108,44.6696154,13z",
@@ -56,7 +55,7 @@ const locations = [
   {
     type: "Sightseeing",
     name: "Geghard Monastery",
-    image: "../assets/geghard.jpg",
+    image: "./assets/geghard.jpg",
     website: "https://en.wikipedia.org/wiki/Geghard",
     googleMaps:
       "https://www.google.com/maps/place/Geghard,+Armenia/@40.1243108,44.6696154,13z",
@@ -97,7 +96,6 @@ const LocationsPage = () => {
 
   return (
     <PageContainer>
-      <Sidebar />
       <MainContent>
         <h1>Locations</h1>
         <TopBar>
@@ -160,18 +158,20 @@ const LocationsPage = () => {
 };
 
 export default LocationsPage;
-
 const PageContainer = styled.div`
   display: flex;
-  background-size: cover; /* Adjust the image to cover the entire area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Avoid repeating the image */
-  background-attachment: fixed; /* Keep the background fixed during scrolling */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 100vh;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack elements for small screens */
+  }
 `;
 
 const MainContent = styled.div`
-  margin-left: 220px;
   padding: 20px;
   flex-grow: 1;
 
@@ -181,6 +181,10 @@ const MainContent = styled.div`
     margin-bottom: 20px;
     text-align: center;
   }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 const TopBar = styled.div`
@@ -188,6 +192,11 @@ const TopBar = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px; /* Add spacing between elements */
+  }
 `;
 
 const Filter = styled.div`
@@ -197,24 +206,29 @@ const Filter = styled.div`
   label {
     margin-right: 10px;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 18px; /* Slightly smaller on smaller screens */
   }
 
   select {
     margin-left: 10px;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #d6e6f2;
     border-radius: 4px;
     background-color: #f8f9fa;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
   }
 `;
 
 const FavoritesButton = styled.button`
   padding: 10px 20px;
   background-color: #0077b6;
-  font-size: 16px;
+  font-size: 14px; /* Slightly smaller */
   color: white;
   border: none;
   border-radius: 4px;
@@ -223,8 +237,13 @@ const FavoritesButton = styled.button`
   transition: background-color 0.3s ease, transform 0.2s ease;
 
   &:hover {
-    background-color: #00b4d8;
+    background-color: #75c0d5;
     transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%; /* Make the button full-width */
+    text-align: center;
   }
 `;
 
@@ -244,14 +263,14 @@ const LocationCard = styled.div`
 
   img {
     width: 100%;
-    height: 250px;
+    height: 200px; /* Slightly reduced height for mobile */
     object-fit: cover;
   }
 
   h3 {
     margin: 10px 0;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem; /* Slightly smaller font size */
     color: ${(props) => (props.type === "Restaurant" ? "#0077b6" : "#495057")};
   }
 
@@ -267,9 +286,9 @@ const LocationCard = styled.div`
 
   .buttons {
     display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Add spacing between buttons */
 
     a,
     button {
@@ -291,21 +310,30 @@ const LocationCard = styled.div`
 
     a:hover,
     button:hover {
-      background-color: #e3f2fd;
+      background-color: #f0f8ff;
       transform: scale(1.1);
     }
+  }
 
-    button {
-      background: none;
-      color: ${(props) =>
-        props.favorite ? "red" : "#0077b6"}; /* Heart color changes */
+  @media (max-width: 768px) {
+    .buttons a,
+    .buttons button {
+      font-size: 1rem; /* Adjust font size for buttons */
+      padding: 8px; /* Adjust padding for smaller screens */
     }
   }
 `;
 
 const Gallery = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(150px, 1fr)
+  ); /* Smaller boxes on mobile */
   gap: 10px;
   margin-top: 30px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
 `;

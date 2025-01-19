@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Sidebar from "../components/Sidebar";
 
 const HomePage = () => {
   return (
     <PageContainer>
-      <Sidebar />
       <MainContent>
         <h1>Welcome to Our Wedding</h1>
         <p>We are so excited to celebrate our special day with you!</p>
@@ -30,7 +28,6 @@ const PageContainer = styled.div`
 `;
 
 const MainContent = styled.div`
-  margin-left: 220px;
   padding: 20px;
   flex-grow: 1;
 

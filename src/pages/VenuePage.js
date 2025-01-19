@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import Sidebar from "../components/Sidebar";
 
 const VenuePage = () => {
   return (
     <PageContainer>
-      <Sidebar />
       <MainContent>
+        <h1>Church</h1>
+        <p>Still to be determined 😇</p>
         <h1>Wedding Venue</h1>
-        <p>Still to be determined 😇</p>{" "}
+        <p>Still to be determined 😇</p>
       </MainContent>
     </PageContainer>
   );
@@ -26,7 +26,6 @@ const PageContainer = styled.div`
 `;
 
 const MainContent = styled.div`
-  margin-left: 220px;
   padding: 20px;
   flex-grow: 1;
 

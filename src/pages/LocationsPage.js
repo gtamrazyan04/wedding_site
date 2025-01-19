@@ -12,7 +12,7 @@ const locations = [
   {
     type: "Restaurant",
     name: "Sherep",
-    image: "../../public/assets/sherep.jpeg",
+    image: "../assets/sherep.jpeg",
     website:
       "https://www.tripadvisor.co.uk/Restaurant_Review-g293932-d13157535-Reviews-Sherep_Restaurant-Yerevan.html",
     googleMaps:
@@ -21,7 +21,7 @@ const locations = [
   {
     type: "Restaurant",
     name: "Seasons",
-    image: "../../public/assets/seasons.jpg",
+    image: "../assets/seasons.jpg",
     website:
       "https://www.tripadvisor.in/Restaurant_Review-g293932-d17639706-Reviews-Seasons_Restaurant-Yerevan.html",
     googleMaps:
@@ -30,7 +30,7 @@ const locations = [
   {
     type: "Restaurant",
     name: "Tavern Yerevan",
-    image: "../../public/assets/tavern_yerevan.jpg",
+    image: "../assets/tavern_yerevan.jpg",
     website:
       "https://www.tripadvisor.in/Restaurant_Review-g293932-d8800809-Reviews-Tavern_Yerevan-Yerevan.html",
     googleMaps:
@@ -39,7 +39,7 @@ const locations = [
   {
     type: "Restaurant",
     name: "Lavash",
-    image: "../../public/assets/lavash.jpg",
+    image: "../assets/lavash.jpg",
     website:
       "https://www.tripadvisor.in/Restaurant_Review-g293932-d12321316-Reviews-Lavash_Restaurant-Yerevan.html",
     googleMaps:
@@ -48,7 +48,7 @@ const locations = [
   {
     type: "Sightseeing",
     name: "Garni Temple",
-    image: "../../public/assets/garni.jpg",
+    image: "../assets/garni.jpg",
     website: "https://en.wikipedia.org/wiki/Temple_of_Garni",
     googleMaps:
       "https://www.google.com/maps/place/Garni+2215,+Armenia/@40.1243108,44.6696154,13z",
@@ -56,7 +56,7 @@ const locations = [
   {
     type: "Sightseeing",
     name: "Geghard Monastery",
-    image: "../../public/assets/geghard.jpg",
+    image: "../assets/geghard.jpg",
     website: "https://en.wikipedia.org/wiki/Geghard",
     googleMaps:
       "https://www.google.com/maps/place/Geghard,+Armenia/@40.1243108,44.6696154,13z",

@@ -1,22 +1,15 @@
 {
   "files": {
-    "main.css": "/og-hochzeit.ch/static/css/main.e6c13ad2.css",
-    "main.js": "/og-hochzeit.ch/static/js/main.95429cf2.js",
-    "static/js/156.84448d77.chunk.js": "/og-hochzeit.ch/static/js/156.84448d77.chunk.js",
-    "static/media/geghard.jpg": "/og-hochzeit.ch/static/media/geghard.a2f6cd976a6c394ce0ab.jpg",
-    "static/media/garni.jpg": "/og-hochzeit.ch/static/media/garni.d09028c4271ee791d87b.jpg",
-    "static/media/hintergrund.jpg": "/og-hochzeit.ch/static/media/hintergrund.743c87efa1840c84b5ce.jpg",
-    "static/media/seasons.jpg": "/og-hochzeit.ch/static/media/seasons.055908604ad44506d260.jpg",
-    "static/media/sherep.jpeg": "/og-hochzeit.ch/static/media/sherep.ad6ef82332dbe885e0c0.jpeg",
-    "static/media/lavash.jpg": "/og-hochzeit.ch/static/media/lavash.0332c49cd20582fdde81.jpg",
-    "static/media/tavern_yerevan.jpg": "/og-hochzeit.ch/static/media/tavern_yerevan.3429a1067f802f5f2803.jpg",
-    "index.html": "/og-hochzeit.ch/index.html",
-    "main.e6c13ad2.css.map": "/og-hochzeit.ch/static/css/main.e6c13ad2.css.map",
-    "main.95429cf2.js.map": "/og-hochzeit.ch/static/js/main.95429cf2.js.map",
-    "156.84448d77.chunk.js.map": "/og-hochzeit.ch/static/js/156.84448d77.chunk.js.map"
+    "main.css": "/static/css/main.e6c13ad2.css",
+    "main.js": "/static/js/main.e6cdd068.js",
+    "static/js/156.84448d77.chunk.js": "/static/js/156.84448d77.chunk.js",
+    "index.html": "/index.html",
+    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
+    "main.e6cdd068.js.map": "/static/js/main.e6cdd068.js.map",
+    "156.84448d77.chunk.js.map": "/static/js/156.84448d77.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.95429cf2.js"
+    "static/js/main.e6cdd068.js"
   ]
 }

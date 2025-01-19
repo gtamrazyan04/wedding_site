@@ -7,6 +7,12 @@ const Sidebar = ({ children }) => {
 
   const toggleSidebar = () => setIsOpen(!isOpen);
 
+  const handleLinkClick = () => {
+    if (window.innerWidth <= 768) {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <Layout>
       <SidebarContainer isOpen={isOpen}>
@@ -20,16 +26,24 @@ const Sidebar = ({ children }) => {
             </Header>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/" onClick={handleLinkClick}>
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/venue">Ablauf</Link>
+                <Link to="/venue" onClick={handleLinkClick}>
+                  Ablauf
+                </Link>
               </li>
               <li>
-                <Link to="/locations">Locations</Link>
+                <Link to="/locations" onClick={handleLinkClick}>
+                  Locations
+                </Link>
               </li>
               <li>
-                <Link to="/faq">FAQ</Link>
+                <Link to="/faq" onClick={handleLinkClick}>
+                  FAQ
+                </Link>
               </li>
             </ul>
           </>

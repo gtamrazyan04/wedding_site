@@ -10,7 +10,6 @@ import { locations } from "../components/locations";
 
 const LocationsPage = () => {
   const [favorites, setFavorites] = useState([]);
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
   // Load favorites from localStorage
   useEffect(() => {
@@ -47,46 +46,41 @@ const LocationsPage = () => {
 
   return (
     <PageContainer>
-      {isSidebarVisible && (
-        <Sidebar>
-          <ToggleSidebarButton onClick={() => setIsSidebarVisible(false)}>
-            Liste minimieren
-          </ToggleSidebarButton>
-
-          {/* Restaurants Group */}
-          <GroupContainer>
-            <GroupHeader onClick={toggleRestaurants}>
-              <span>{isRestaurantVisible ? "▼" : "▶"}</span> Restaurants
-            </GroupHeader>
-            {isRestaurantVisible && (
-              <LocationList>
-                {restaurants.map((location, index) => (
-                  <LocationItem
-                    key={index}
-                    onClick={() => setActiveMap(location.embed)}
-                  >
-                    <img src={location.image} alt={location.name} />
-                    <div className="details">
-                      <h3>{location.name}</h3>
-                      <p>{location.description}</p>
-                      <div className="buttons">
-                        <a
-                          href={location.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(event) => event.stopPropagation()}
-                        >
-                          <FontAwesomeIcon icon={faGlobe} />
-                        </a>
-                        <a
-                          href={location.googleMaps}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(event) => event.stopPropagation()}
-                        >
-                          <FontAwesomeIcon icon={faMapMarkerAlt} />
-                        </a>
-                        {/* <button
+      <Sidebar>
+        {/* Restaurants Group */}
+        <GroupContainer>
+          <GroupHeader onClick={toggleRestaurants}>
+            <span>{isRestaurantVisible ? "▼" : "▶"}</span> Restaurants
+          </GroupHeader>
+          {isRestaurantVisible && (
+            <LocationList>
+              {restaurants.map((location, index) => (
+                <LocationItem
+                  key={index}
+                  onClick={() => setActiveMap(location.embed)}
+                >
+                  <img src={location.image} alt={location.name} />
+                  <div className="details">
+                    <h3>{location.name}</h3>
+                    <p>{location.description}</p>
+                    <div className="buttons">
+                      <a
+                        href={location.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <FontAwesomeIcon icon={faGlobe} />
+                      </a>
+                      <a
+                        href={location.googleMaps}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <FontAwesomeIcon icon={faMapMarkerAlt} />
+                      </a>
+                      {/* <button
                           onClick={(event) => {
                             event.stopPropagation();
                             toggleFavorite(location);
@@ -103,49 +97,49 @@ const LocationsPage = () => {
                             }
                           />
                         </button> */}
-                      </div>
                     </div>
-                  </LocationItem>
-                ))}
-              </LocationList>
-            )}
-          </GroupContainer>
+                  </div>
+                </LocationItem>
+              ))}
+            </LocationList>
+          )}
+        </GroupContainer>
 
-          {/* Sehenswürdigkeiten Group */}
-          <GroupContainer>
-            <GroupHeader onClick={toggleSehenswurdigkeiten}>
-              <span>{isSehenswurdigkeitVisible ? "▼" : "▶"}</span>{" "}
-              Sehenswürdigkeiten
-            </GroupHeader>
-            {isSehenswurdigkeitVisible && (
-              <LocationList>
-                {sehenswurdigkeiten.map((location, index) => (
-                  <LocationItem
-                    key={index}
-                    onClick={() => setActiveMap(location.embed)}
-                  >
-                    <img src={location.image} alt={location.name} />
-                    <div className="details">
-                      <h3>{location.name}</h3>
-                      <p>{location.description}</p>
-                      <div className="buttons">
-                        <a
-                          href={location.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(event) => event.stopPropagation()}
-                        >
-                          <FontAwesomeIcon icon={faGlobe} />
-                        </a>
-                        <a
-                          href={location.googleMaps}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(event) => event.stopPropagation()}
-                        >
-                          <FontAwesomeIcon icon={faMapMarkerAlt} />
-                        </a>
-                        {/* <button
+        {/* Sehenswürdigkeiten Group */}
+        <GroupContainer>
+          <GroupHeader onClick={toggleSehenswurdigkeiten}>
+            <span>{isSehenswurdigkeitVisible ? "▼" : "▶"}</span>{" "}
+            Sehenswürdigkeiten
+          </GroupHeader>
+          {isSehenswurdigkeitVisible && (
+            <LocationList>
+              {sehenswurdigkeiten.map((location, index) => (
+                <LocationItem
+                  key={index}
+                  onClick={() => setActiveMap(location.embed)}
+                >
+                  <img src={location.image} alt={location.name} />
+                  <div className="details">
+                    <h3>{location.name}</h3>
+                    <p>{location.description}</p>
+                    <div className="buttons">
+                      <a
+                        href={location.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <FontAwesomeIcon icon={faGlobe} />
+                      </a>
+                      <a
+                        href={location.googleMaps}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <FontAwesomeIcon icon={faMapMarkerAlt} />
+                      </a>
+                      {/* <button
                           onClick={(event) => {
                             event.stopPropagation();
                             toggleFavorite(location);
@@ -162,23 +156,16 @@ const LocationsPage = () => {
                             }
                           />
                         </button> */}
-                      </div>
                     </div>
-                  </LocationItem>
-                ))}
-              </LocationList>
-            )}
-          </GroupContainer>
-        </Sidebar>
-      )}
+                  </div>
+                </LocationItem>
+              ))}
+            </LocationList>
+          )}
+        </GroupContainer>
+      </Sidebar>
+
       <MainContent>
-        {!isSidebarVisible && (
-          <OpenButton>
-            <ToggleSidebarButton onClick={() => setIsSidebarVisible(true)}>
-              Liste anzeigen
-            </ToggleSidebarButton>
-          </OpenButton>
-        )}
         <MapContainer>
           <iframe title="Google Maps" src={activeMap} allowFullScreen />
         </MapContainer>
@@ -194,10 +181,17 @@ const PageContainer = styled.div`
   display: flex;
   height: 100vh;
   overflow: hidden;
+  @media (max-width: 768px) {
+    flex-direction: column; /* Map oben, Liste unten */
+    height: auto; /* Scrollen auf kleinen Bildschirmen ermöglichen */
+  }
 `;
 const GroupContainer = styled.div`
   margin-bottom: 20px;
   padding-left: 20px;
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
 `;
 
 const GroupHeader = styled.div`
@@ -223,30 +217,18 @@ const Sidebar = styled.div`
   overflow-y: auto;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
-`;
-const OpenButton = styled.div`
-  padding-left: 10px;
-  padding-top: 10px;
+  @media (max-width: 768px) {
+    width: 100%; /* Full width for smaller screens */
+    height: calc(100vh - 50vh); /* Take up remaining space below the map */
+    padding: 10px;
+    overflow-y: auto; /* Make the list scrollable */
+  }
 `;
 const MainContent = styled.div`
   flex-grow: 1;
   position: relative;
-`;
-
-const ToggleSidebarButton = styled.button`
-  background: #0077b6;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 15px;
-  margin-left: 20px;
-
-  &:hover {
-    background: #005f8a;
+  @media (max-width: 768px) {
+    order: -1; /* Map nach oben verschieben */
   }
 `;
 
@@ -254,6 +236,9 @@ const LocationList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  @media (max-width: 768px) {
+    gap: 10px; /* Weniger Abstand auf kleinen Bildschirmen */
+  }
 `;
 
 const LocationItem = styled.div`
@@ -322,5 +307,12 @@ const MapContainer = styled.div`
     width: 100%;
     height: 100%;
     border: none;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 15px;
+    height: 38vh; /* Limit map height */
+    z-index: 1; /* Ensure it's above the list */
+    margin-bottom: 10px;
   }
 `;

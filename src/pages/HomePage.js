@@ -96,6 +96,7 @@ const MainContent = styled.div`
     flex-direction: column;
     text-align: center;
     padding: 2rem 1rem;
+    width: 90%;
   }
 `;
 
@@ -105,7 +106,9 @@ const Title = styled.h1`
   margin-bottom: 10px;
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    width: 70%;
+    font-size: 2rem;
+    text-align: left;
   }
 `;
 
@@ -121,6 +124,7 @@ const Date = styled.h2`
 
 const Section = styled.div`
   margin-bottom: 40px;
+  text-align: justify;
 
   h2 {
     font-size: 1.8rem;
@@ -158,4 +162,8 @@ const Background = styled.div`
   background-size: cover;
   opacity: 0.9;
   z-index: -1;
+  @media (max-width: 768px) {
+    margin-top: -600px;
+    background-size: contain;
+  }
 `;

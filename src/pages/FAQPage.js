@@ -188,13 +188,6 @@ const FAQPage = () => {
               dem man ohne Bedenken (auch als Frau) alleine unterwegs sein kann.
             </p>
           </li>
-
-          <li>
-            <strong>Kontaktpersonen (via Whatsapp, auch in Armenien)</strong>
-            <p>Oliver Angst / +41 79 673 23 39 </p>
-            <p>Gohar Tamrazyan / +41 78 800 22 71 </p>
-            <p>Ararat Tamrazyan / +41 78 742 38 41 </p>
-          </li>
         </ul>
       </MainContent>
     </PageContainer>

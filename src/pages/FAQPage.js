@@ -1,13 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import back from "./assets/hintergrundbild_ohne.png";
 
 const FAQPage = () => {
   return (
     <PageContainer>
+      <Background />
       <MainContent>
         <h1>FAQs</h1>
         <h2>Transport & Unterkunft</h2>
         <ul>
+          <li>
+            <strong>🇨🇭 Brauche ich als Schweizer ein Visum?</strong>
+            <p>Nein.</p>
+          </li>
           <li>
             <strong>👩‍💻 Wo buche ich am besten eine Unterkunft?</strong>
             <p>
@@ -19,22 +25,25 @@ const FAQPage = () => {
               >
                 Booking.com
               </a>{" "}
-              oder fragt uns direkt für Empfehlungen. Am besten wartet ihr noch
-              mit dem Buchen, bis die Lokalität für die Hochzeit bekannt gegeben
-              wird.
+              oder{" "}
+              <a
+                href="https://www.airbnb.ch"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Airbnb
+              </a>
+              . Am besten wartet ihr noch mit dem Buchen, bis die Lokalität für
+              die Hochzeit bekannt gegeben wird.
             </p>
           </li>
-          <li>
-            <strong>🛬 Wie komme ich vom Flughafen in meine Unterkunft?</strong>
-            <p>
-              Wir organisieren eine Abholung. Bitte teilt uns eure Ankunftszeit
-              mit.
-            </p>
-          </li>
+
           <li>
             <strong>🚕 Welche Transportmittel sollte ich benutzen?</strong>
             <p>
-              Am besten die{" "}
+              In Armenien gibt es, ähnlich wie in der Schweiz, öffentlichen
+              Verkehr, vor allem Busse. Allerdings fahren diese nicht pünktlich
+              und oft ohne festen Fahrplan. Wir empfehlen euch, die{" "}
               <a
                 href="https://yandex.com/support/yandex-app-android-alice/en/app/install"
                 target="_blank"
@@ -42,10 +51,27 @@ const FAQPage = () => {
               >
                 Yandex App
               </a>{" "}
-              herunterladen. Taxis können direkt über die App bestellt werden,
-              und ihr seht den Preis im Voraus. Meist kommt ein Taxi direkt
-              innert weniger Minuten, ihr seht auch immer den live Standort von
-              eurem Taxi, während ihr auf diesen wartet.
+              herunterzuladen und mit dem Taxi zu reisen, da die Preise dort
+              sehr günstig sind. Über die App könnt ihr Taxis direkt bestellen
+              und seht den Fahrpreis im Voraus. In der Regel kommt ein Taxi
+              innerhalb weniger Minuten, und ihr könnt den aktuellen Standort
+              eures Taxis live verfolgen, während ihr darauf wartet.
+            </p>
+          </li>
+          <li>
+            <strong>🛬 Wie komme ich vom Flughafen in meine Unterkunft?</strong>
+            <p>
+              Ihr könnt uns kontaktieren mit eurer Ankunftszeit und wir schauen,
+              ob wir etwas organisieren können. Ansonsten könnt ihr vor Ort
+              direkt ein Taxi mit der{" "}
+              <a
+                href="https://yandex.com/support/yandex-app-android-alice/en/app/install"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Yandex App
+              </a>{" "}
+              bestellen.
             </p>
           </li>
         </ul>
@@ -56,8 +82,8 @@ const FAQPage = () => {
               🥘 Wie ist das Essen im Vergleich zur Mitteleuropäischen Küche?
             </strong>
             <p>
-              Laut Oliver Angst ist das Essen in Armenien sehr nahe bei unserer
-              Küche (auch nicht speziell scharf).
+              Laut Oliver ist das Essen in Armenien sehr nahe bei unserer Küche
+              (auch nicht speziell scharf).
             </p>
           </li>
           <li>
@@ -121,7 +147,7 @@ const FAQPage = () => {
             </p>
           </li>
           <li>
-            <strong>Wie sind die Preise in Armenien?</strong>
+            <strong>💵 Wie sind die Preise in Armenien?</strong>
             <p>
               Im Vergleich zu der Schweiz sind die Preise in Armenien günstig -
               aber auch nicht in allen Bereichen. Ein Coiffeurtermin lohnt sich
@@ -129,7 +155,12 @@ const FAQPage = () => {
               5 und 10 Franken.
             </p>
           </li>
+          <li>
+            <strong>💵 Gibt man generell Trinkgeld?</strong>
+            <p>So etwa wie in der Schweiz. Keine speziellen Regelungen.</p>
+          </li>
         </ul>
+
         <h2>Allgemeines</h2>
         <ul>
           <li>
@@ -144,10 +175,17 @@ const FAQPage = () => {
             </p>
           </li>
           <li>
-            <strong>Finde ich dort Apotheken?</strong>
+            <strong>👩‍⚕️ Finde ich dort Apotheken?</strong>
             <p>
               Die meisten Apotheken sind 24h geöffnet und geben oft Medikamente
               auch ohne Rezepte (ohne Gewähr).
+            </p>
+          </li>
+          <li>
+            <strong>👍🏻 Wie sieht es aus mit der Sicherheit im Land?</strong>
+            <p>
+              Armenien ist ein sicheres Land, am Tag wie auch in der Nacht, in
+              dem man ohne Bedenken (auch als Frau) alleine unterwegs sein kann.
             </p>
           </li>
 
@@ -176,7 +214,7 @@ const PageContainer = styled.div`
 `;
 
 const MainContent = styled.div`
-  padding: 20px;
+  padding: 40px;
 
   h1 {
     color: #0077b6;
@@ -216,6 +254,7 @@ const MainContent = styled.div`
     margin: 0;
     color: #495057;
     line-height: 1.5;
+    font-size: 18px;
   }
 
   a {
@@ -228,4 +267,15 @@ const MainContent = styled.div`
     color: #00b4d8;
     text-decoration: underline;
   }
+`;
+
+const Background = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(${back}) no-repeat center center;
+  background-size: cover;
+  z-index: -1;
 `;

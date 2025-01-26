@@ -6,66 +6,11 @@ import {
   faGlobe,
   faHeart,
 } from "@fortawesome/free-solid-svg-icons";
-
-const locations = [
-  {
-    type: "Restaurant",
-    name: "Sherep",
-    image: "./assets/sherep.jpeg",
-    website:
-      "https://www.tripadvisor.co.uk/Restaurant_Review-g293932-d13157535-Reviews-Sherep_Restaurant-Yerevan.html",
-    googleMaps:
-      "https://www.google.com/maps/search/Sherep,Amiryan+Street+1+(Republic+Square),+0001,+Երևան,+Yerevan/@40.1780684,44.5092502,17z/data=!3m1!4b1",
-  },
-  {
-    type: "Restaurant",
-    name: "Seasons",
-    image: "./assets/seasons.jpg",
-    website:
-      "https://www.tripadvisor.in/Restaurant_Review-g293932-d17639706-Reviews-Seasons_Restaurant-Yerevan.html",
-    googleMaps:
-      "https://www.google.com/maps?saddr&daddr=15,+5+Mesrop+Mashtots+Ave.+At+Seasons+Park,+Yerevan+0002+Armenia",
-  },
-  {
-    type: "Restaurant",
-    name: "Tavern Yerevan",
-    image: "./assets/tavern_yerevan.jpg",
-    website:
-      "https://www.tripadvisor.in/Restaurant_Review-g293932-d8800809-Reviews-Tavern_Yerevan-Yerevan.html",
-    googleMaps:
-      "https://www.google.com/maps?saddr&daddr=91+Teryan+St.,+Yerevan+0009+Armenia",
-  },
-  {
-    type: "Restaurant",
-    name: "Lavash",
-    image: "./assets/lavash.jpg",
-    website:
-      "https://www.tripadvisor.in/Restaurant_Review-g293932-d12321316-Reviews-Lavash_Restaurant-Yerevan.html",
-    googleMaps:
-      "https://www.google.com/maps?saddr&daddr=21+Tumanyan+St,+Yerevan+0001+Armenia",
-  },
-  {
-    type: "Sightseeing",
-    name: "Garni Temple",
-    image: "./assets/garni.jpg",
-    website: "https://en.wikipedia.org/wiki/Temple_of_Garni",
-    googleMaps:
-      "https://www.google.com/maps/place/Garni+2215,+Armenia/@40.1243108,44.6696154,13z",
-  },
-  {
-    type: "Sightseeing",
-    name: "Geghard Monastery",
-    image: "./assets/geghard.jpg",
-    website: "https://en.wikipedia.org/wiki/Geghard",
-    googleMaps:
-      "https://www.google.com/maps/place/Geghard,+Armenia/@40.1243108,44.6696154,13z",
-  },
-];
+import { locations } from "../components/locations";
 
 const LocationsPage = () => {
   const [favorites, setFavorites] = useState([]);
-  const [showFavorites, setShowFavorites] = useState(false);
-  const [filter, setFilter] = useState("All"); // Filter for locations
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
   // Load favorites from localStorage
   useEffect(() => {
@@ -86,254 +31,296 @@ const LocationsPage = () => {
       setFavorites([...favorites, location]);
     }
   };
-
-  // Filter locations based on the filter value
-  const filteredLocations = locations.filter((location) =>
-    filter === "All" ? true : location.type === filter
+  const [activeMap, setActiveMap] = useState(locations[0].embed); // Default to the first location
+  const [isRestaurantVisible, setIsRestaurantVisible] = useState(true);
+  const [isSehenswurdigkeitVisible, setIsSehenswurdigkeitVisible] =
+    useState(true);
+  const restaurants = locations.filter(
+    (location) => location.type === "Restaurant"
   );
-
-  const displayedLocations = showFavorites ? favorites : filteredLocations;
+  const sehenswurdigkeiten = locations.filter(
+    (location) => location.type === "Sehenswürdigkeit"
+  );
+  const toggleRestaurants = () => setIsRestaurantVisible(!isRestaurantVisible);
+  const toggleSehenswurdigkeiten = () =>
+    setIsSehenswurdigkeitVisible(!isSehenswurdigkeitVisible);
 
   return (
     <PageContainer>
+      {isSidebarVisible && (
+        <Sidebar>
+          <ToggleSidebarButton onClick={() => setIsSidebarVisible(false)}>
+            Liste minimieren
+          </ToggleSidebarButton>
+
+          {/* Restaurants Group */}
+          <GroupContainer>
+            <GroupHeader onClick={toggleRestaurants}>
+              <span>{isRestaurantVisible ? "▼" : "▶"}</span> Restaurants
+            </GroupHeader>
+            {isRestaurantVisible && (
+              <LocationList>
+                {restaurants.map((location, index) => (
+                  <LocationItem
+                    key={index}
+                    onClick={() => setActiveMap(location.embed)}
+                  >
+                    <img src={location.image} alt={location.name} />
+                    <div className="details">
+                      <h3>{location.name}</h3>
+                      <p>{location.description}</p>
+                      <div className="buttons">
+                        <a
+                          href={location.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          <FontAwesomeIcon icon={faGlobe} />
+                        </a>
+                        <a
+                          href={location.googleMaps}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          <FontAwesomeIcon icon={faMapMarkerAlt} />
+                        </a>
+                        {/* <button
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            toggleFavorite(location);
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faHeart}
+                            color={
+                              favorites.some(
+                                (fav) => fav.name === location.name
+                              )
+                                ? "red"
+                                : "gray"
+                            }
+                          />
+                        </button> */}
+                      </div>
+                    </div>
+                  </LocationItem>
+                ))}
+              </LocationList>
+            )}
+          </GroupContainer>
+
+          {/* Sehenswürdigkeiten Group */}
+          <GroupContainer>
+            <GroupHeader onClick={toggleSehenswurdigkeiten}>
+              <span>{isSehenswurdigkeitVisible ? "▼" : "▶"}</span>{" "}
+              Sehenswürdigkeiten
+            </GroupHeader>
+            {isSehenswurdigkeitVisible && (
+              <LocationList>
+                {sehenswurdigkeiten.map((location, index) => (
+                  <LocationItem
+                    key={index}
+                    onClick={() => setActiveMap(location.embed)}
+                  >
+                    <img src={location.image} alt={location.name} />
+                    <div className="details">
+                      <h3>{location.name}</h3>
+                      <p>{location.description}</p>
+                      <div className="buttons">
+                        <a
+                          href={location.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          <FontAwesomeIcon icon={faGlobe} />
+                        </a>
+                        <a
+                          href={location.googleMaps}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          <FontAwesomeIcon icon={faMapMarkerAlt} />
+                        </a>
+                        {/* <button
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            toggleFavorite(location);
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faHeart}
+                            color={
+                              favorites.some(
+                                (fav) => fav.name === location.name
+                              )
+                                ? "red"
+                                : "gray"
+                            }
+                          />
+                        </button> */}
+                      </div>
+                    </div>
+                  </LocationItem>
+                ))}
+              </LocationList>
+            )}
+          </GroupContainer>
+        </Sidebar>
+      )}
       <MainContent>
-        <h1>Locations</h1>
-        <TopBar>
-          <Filter>
-            <label>Filter: </label>
-            <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-              <option value="All">All</option>
-              <option value="Restaurant">Restaurants</option>
-              <option value="Sightseeing">Sightseeing</option>
-            </select>
-          </Filter>
-          <FavoritesButton onClick={() => setShowFavorites(!showFavorites)}>
-            {showFavorites ? "Back to All" : "View Favorites"}
-            <FontAwesomeIcon
-              icon={faHeart}
-              color={"white"}
-              style={{ marginLeft: "10px" }}
-            />
-          </FavoritesButton>
-        </TopBar>
-        <Gallery>
-          {displayedLocations.map((location, index) => (
-            <LocationCard key={index} type={location.type}>
-              <img src={location.image} alt={location.name} />
-              <h3>{location.name}</h3>
-              <div className="content">
-                <div className="buttons">
-                  <a
-                    href={location.googleMaps}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FontAwesomeIcon icon={faMapMarkerAlt} />
-                  </a>
-                  <a
-                    href={location.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FontAwesomeIcon icon={faGlobe} />
-                  </a>
-                  <button onClick={() => toggleFavorite(location)}>
-                    <FontAwesomeIcon
-                      icon={faHeart}
-                      color={
-                        favorites.some((fav) => fav.name === location.name)
-                          ? "red"
-                          : "gray"
-                      }
-                    />
-                  </button>
-                </div>
-              </div>
-            </LocationCard>
-          ))}
-        </Gallery>
+        {!isSidebarVisible && (
+          <OpenButton>
+            <ToggleSidebarButton onClick={() => setIsSidebarVisible(true)}>
+              Liste anzeigen
+            </ToggleSidebarButton>
+          </OpenButton>
+        )}
+        <MapContainer>
+          <iframe title="Google Maps" src={activeMap} allowFullScreen />
+        </MapContainer>
       </MainContent>
     </PageContainer>
   );
 };
 
 export default LocationsPage;
+
+// Styled Components
 const PageContainer = styled.div`
   display: flex;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 100vh;
-
-  @media (max-width: 768px) {
-    flex-direction: column; /* Stack elements for small screens */
-  }
+  height: 100vh;
+  overflow: hidden;
 `;
-
-const MainContent = styled.div`
-  padding: 20px;
-  flex-grow: 1;
-
-  h1 {
-    color: #0077b6;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
-  @media (max-width: 768px) {
-    padding: 10px;
-  }
-`;
-
-const TopBar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+const GroupContainer = styled.div`
   margin-bottom: 20px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 10px; /* Add spacing between elements */
-  }
+  padding-left: 20px;
 `;
 
-const Filter = styled.div`
+const GroupHeader = styled.div`
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 
-  label {
+  span {
     margin-right: 10px;
-    font-weight: bold;
-    font-size: 18px; /* Slightly smaller on smaller screens */
   }
 
-  select {
-    margin-left: 10px;
-    padding: 10px;
-    border: 1px solid #d6e6f2;
-    border-radius: 4px;
-    background-color: #f8f9fa;
-    cursor: pointer;
-    font-size: 14px;
-  }
-
-  @media (max-width: 768px) {
-    flex-direction: row;
-    align-items: flex-start;
+  &:hover {
+    color: #0077b6;
   }
 `;
 
-const FavoritesButton = styled.button`
-  padding: 10px 20px;
-  background-color: #0077b6;
-  font-size: 14px; /* Slightly smaller */
+const Sidebar = styled.div`
+  width: 300px;
+  background: #f8f9fa;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+`;
+const OpenButton = styled.div`
+  padding-left: 10px;
+  padding-top: 10px;
+`;
+const MainContent = styled.div`
+  flex-grow: 1;
+  position: relative;
+`;
+
+const ToggleSidebarButton = styled.button`
+  background: #0077b6;
   color: white;
   border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  font-size: 15px;
+  margin-left: 20px;
 
   &:hover {
-    background-color: #75c0d5;
-    transform: scale(1.05);
-  }
-
-  @media (max-width: 768px) {
-    width: 100%; /* Make the button full-width */
-    text-align: center;
+    background: #005f8a;
   }
 `;
 
-const LocationCard = styled.div`
-  background-color: ${(props) =>
-    props.type === "Restaurant" ? "#ffffff" : "#f8f9fa"};
-  border: ${(props) =>
-    props.type === "Restaurant" ? "1px solid #d6e6f2" : "1px solid #ccc"};
+const LocationList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
+
+const LocationItem = styled.div`
+  display: flex;
+  background: white;
+  border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.02);
-  }
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 
   img {
-    width: 100%;
-    height: 200px; /* Slightly reduced height for mobile */
+    width: 90px;
+    height: 90px;
     object-fit: cover;
   }
 
-  h3 {
-    margin: 10px 0;
-    text-align: center;
-    font-size: 1rem; /* Slightly smaller font size */
-    color: ${(props) => (props.type === "Restaurant" ? "#0077b6" : "#495057")};
-  }
-
-  .content {
+  .details {
+    flex-grow: 1;
     padding: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    color: #495057;
-  }
+    justify-content: space-between;
 
-  .buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px; /* Add spacing between buttons */
+    h3 {
+      font-size: 1rem;
+      margin: 0;
+    }
 
-    a,
-    button {
-      text-decoration: none;
-      color: #0077b6;
-      background-color: #f8f9fa;
-      border: 1px solid #d6e6f2;
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      text-align: center;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      font-size: 1.2rem;
+    p {
+      font-size: 0.85rem;
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .buttons {
       display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+      gap: 15px;
 
-    a:hover,
-    button:hover {
-      background-color: #f0f8ff;
-      transform: scale(1.1);
-    }
-  }
+      a,
+      button {
+        font-size: 0.85rem;
+        color: #0077b6;
+        text-decoration: none;
+        border: none;
+        background: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
 
-  @media (max-width: 768px) {
-    .buttons a,
-    .buttons button {
-      font-size: 1rem; /* Adjust font size for buttons */
-      padding: 8px; /* Adjust padding for smaller screens */
+        &:hover {
+          color: #005f8a;
+        }
+      }
+      button {
+        margin-left: 70px;
+      }
     }
   }
 `;
 
-const Gallery = styled.div`
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(150px, 1fr)
-  ); /* Smaller boxes on mobile */
-  gap: 10px;
-  margin-top: 30px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+const MapContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
   }
 `;

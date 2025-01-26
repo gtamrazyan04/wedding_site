@@ -8,7 +8,9 @@ import FAQPage from "./pages/FAQPage";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/wedding_site">
+      {" "}
+      {/* Set the base URL for React Router */}
       <Sidebar>
         <Routes>
           <Route path="/" element={<HomePage />} />

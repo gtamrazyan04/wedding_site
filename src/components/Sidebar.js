@@ -30,11 +30,11 @@ const Sidebar = ({ children }) => {
                   Home
                 </Link>
               </li>
-              <li>
+              {/*<li>
                 <Link to="/venue" onClick={handleLinkClick}>
                   Ablauf
                 </Link>
-              </li>
+              </li>*/}
               <li>
                 <Link to="/locations" onClick={handleLinkClick}>
                   Locations
@@ -157,11 +157,10 @@ const Header = styled.div`
 const MainContent = styled.div`
   flex-grow: 1;
   margin-top: ${(props) => (props.isOpen ? "200px" : "50px")};
-  padding: 20px;
   transition: margin-top 0.3s ease;
 
   @media (min-width: 768px) {
-    margin-left: ${(props) => (props.isOpen ? "200px" : "0")};
+    margin-left: ${(props) => (props.isOpen ? "180px" : "0")};
     margin-top: 0;
   }
 `;

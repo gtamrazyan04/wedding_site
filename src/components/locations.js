@@ -123,7 +123,7 @@ export const locations = [
     name: "Tsitsernakaberd",
     description: "",
     image: "./assets/cicernakaberd.jpg",
-    website: "http://www.genocide-museum.am/eng/Description_and_history.php",
+    website: "https://www.genocide-museum.am/eng/Description_and_history.php",
     googleMaps: "https://maps.app.goo.gl/Mz73ARUhuK2xEwQH7",
     embed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d782794.6559611235!2d44.700735512499975!3d39.9684112972433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abd086306aa15%3A0x26bea23bec8c6762!2sTsitsernakaberd%20Armenian%20Genocide%20Memorial%20Complex!5e0!3m2!1sen!2sch!4v1737899937020!5m2!1sen!2sch",

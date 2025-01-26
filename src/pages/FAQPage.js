@@ -33,8 +33,8 @@ const FAQPage = () => {
               >
                 Airbnb
               </a>
-              . Am besten wartet ihr noch mit dem Buchen, bis die Lokalität für
-              die Hochzeit bekannt gegeben wird.
+              . Am besten bucht Ihr etwas in der Hauptstadt Yerevan. Dort seit
+              Ihr am zentralsten und erreicht das meiste in kürzester Zeit.
             </p>
           </li>
 
@@ -52,17 +52,17 @@ const FAQPage = () => {
                 Yandex App
               </a>{" "}
               herunterzuladen und mit dem Taxi zu reisen, da die Preise dort
-              sehr günstig sind. Über die App könnt ihr Taxis direkt bestellen
+              sehr günstig sind. Über die App könnt Ihr Taxis direkt bestellen
               und seht den Fahrpreis im Voraus. In der Regel kommt ein Taxi
-              innerhalb weniger Minuten, und ihr könnt den aktuellen Standort
-              eures Taxis live verfolgen, während ihr darauf wartet.
+              innerhalb weniger Minuten, und Ihr könnt den aktuellen Standort
+              eures Taxis live verfolgen, während Ihr darauf wartet.
             </p>
           </li>
           <li>
             <strong>🛬 Wie komme ich vom Flughafen in meine Unterkunft?</strong>
             <p>
               Ihr könnt uns kontaktieren mit eurer Ankunftszeit und wir schauen,
-              ob wir etwas organisieren können. Ansonsten könnt ihr vor Ort
+              ob wir etwas organisieren können. Ansonsten könnt Ihr vor Ort
               direkt ein Taxi mit der{" "}
               <a
                 href="https://yandex.com/support/yandex-app-android-alice/en/app/install"
@@ -115,7 +115,7 @@ const FAQPage = () => {
               📶 Gibt es lokale SIM-Karten oder mobile Datentarife?
             </strong>
             <p>
-              Wenn ihr am Flughafen in Yerevan ankommt, werdet ihr zu jeder Zeit
+              Wenn Ihr am Flughafen in Yerevan ankommt, werdet Ihr zu jeder Zeit
               vor dem Ausgang bei der Gepäckausgabe einige Stände sehen, wo
               SIM-Karten verkauft werden. Wir haben gute Erfahrungen mit{" "}
               <a
@@ -132,7 +132,7 @@ const FAQPage = () => {
           <li>
             <strong>💵 Mit welcher Währung bezahlt man in Armenien?</strong>
             <p>
-              Mit Armenischen Dram (AMD). Am besten wechselt ihr das Geld vor
+              Mit Armenischen Dram (AMD). Am besten wechselt Ihr das Geld vor
               Ort in einer Bank.{" "}
               <a
                 href="https://www.rate.am/en/armenian-dram-exchange-rates/banks"
@@ -141,7 +141,7 @@ const FAQPage = () => {
               >
                 Hier
               </a>{" "}
-              findet ihr jeweils die aktuellen Kurse pro Bank, und könnt euch so
+              findet Ihr jeweils die aktuellen Kurse pro Bank, und könnt euch so
               für die Bank mit dem besten Kurs entscheiden. In den meisten
               Geschäften kann man aber auch mit einer Kreditkarte zahlen.
             </p>
@@ -206,7 +206,7 @@ const PageContainer = styled.div`
 `;
 
 const MainContent = styled.div`
-  padding: 40px;
+  padding: 60px;
 
   h1 {
     color: #0077b6;

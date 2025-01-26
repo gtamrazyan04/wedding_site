@@ -223,7 +223,9 @@ const Sidebar = styled.div`
     padding: 10px;
     overflow-y: auto; /* Make the list scrollable */
   }
+  padding-left: 40px;
 `;
+
 const MainContent = styled.div`
   flex-grow: 1;
   position: relative;

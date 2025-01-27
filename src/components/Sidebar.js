@@ -1,55 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import logoSrc from "./logo512.png";
 
 const Sidebar = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(true);
-
-  const toggleSidebar = () => setIsOpen(!isOpen);
-
-  const handleLinkClick = () => {
-    if (window.innerWidth <= 768) {
-      setIsOpen(false);
-    }
-  };
-
   return (
     <Layout>
-      <SidebarContainer isOpen={isOpen}>
-        <MenuIcon isVisible={!isOpen} onClick={toggleSidebar}>
-          ☰
-        </MenuIcon>
-        {isOpen && (
-          <>
-            <Header>
-              <button onClick={toggleSidebar}>✖</button>
-            </Header>
-            <ul>
-              <li>
-                <Link to="/" onClick={handleLinkClick}>
-                  Home
-                </Link>
-              </li>
-              {/*<li>
-                <Link to="/venue" onClick={handleLinkClick}>
-                  Ablauf
-                </Link>
-              </li>*/}
-              <li>
-                <Link to="/locations" onClick={handleLinkClick}>
-                  Locations
-                </Link>
-              </li>
-              <li>
-                <Link to="/faq" onClick={handleLinkClick}>
-                  FAQ
-                </Link>
-              </li>
-            </ul>
-          </>
-        )}
-      </SidebarContainer>
-      <MainContent isOpen={isOpen}>{children}</MainContent>
+      <Header>
+        <LogoLink to="/">
+          <Logo src={logoSrc} alt="Logo" />
+        </LogoLink>
+
+        <NavLinks>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/locations">Locations</Link>
+          </li>
+          <li>
+            <Link to="/faq">FAQ</Link>
+          </li>
+        </NavLinks>
+      </Header>
+      <MainContent>{children}</MainContent>
     </Layout>
   );
 };
@@ -67,100 +41,94 @@ const Layout = styled.div`
   }
 `;
 
-const SidebarContainer = styled.div`
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between; /* Horizontal layout for phones */
+  align-items: center;
   background-color: #ffffff;
+  padding: 15px 20px;
   border-bottom: 2px solid #d6e6f2;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
   z-index: 10;
-  transition: height 0.3s ease;
-
-  @media (min-width: 768px) {
-    width: ${(props) => (props.isOpen ? "180px" : "0")};
-    height: 100vh;
-    border-right: 2px solid #d6e6f2;
-    border-bottom: none;
+  @media (max-width: 768px) {
+    padding-right: 40px;
   }
 
-  ul {
-    list-style: none;
-    padding: ${(props) => (props.isOpen ? "20px" : "0")};
-    padding-bottom: 0;
-    margin: 0;
+  @media (min-width: 768px) {
+    flex-direction: column; /* Vertical layout for laptops */
+    align-items: center; /* Center logo and links horizontally */
+    justify-content: flex-start;
+    padding: 20px;
+    border-right: 2px dotted #adbbc2;
+    height: 100vh; /* Full height for sidebar */
+    width: 120px; /* Fixed sidebar width */
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: none;
+  }
+`;
 
-    li {
-      margin-bottom: ${(props) => (props.isOpen ? "20px" : "0")};
-      opacity: ${(props) => (props.isOpen ? "1" : "0")};
-      transition: opacity 0.3s ease;
+const LogoLink = styled(Link)`
+  display: flex;
+  justify-content: center; /* Center logo horizontally */
+  margin-bottom: 10px;
 
-      a {
-        text-decoration: none;
-        font-weight: bold;
-        color: #3b566b;
+  @media (min-width: 768px) {
+    margin-bottom: 40px; /* Add space between logo and links */
+  }
+`;
+
+const Logo = styled.img`
+  width: 100px; /* Adjust size as needed */
+  height: auto;
+
+  @media (max-width: 768px) {
+    height: 60px;
+    width: auto;
+  }
+`;
+
+const NavLinks = styled.ul`
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Horizontal gap for phones */
+  margin: 0;
+  padding: 0;
+
+  li {
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #3b566b;
+
+      font-size: 22px;
+      line-height: 2rem;
+
+      @media (max-width: 768px) {
+        font-size: 18px;
+        line-height: 1rem;
       }
 
-      a:hover {
-        color: #b0bac0;
+      &:hover {
+        color: #adbbc2;
       }
     }
   }
-`;
 
-const MenuIcon = styled.div`
-  position: fixed;
-  top: 10px;
-  left: 10px; /* Default position for larger screens */
-  font-size: 30px;
-  cursor: pointer;
-  color: #3b566b;
-  font-weight: bold;
-  padding: 5px 12px;
-  border-radius: 4px;
-  opacity: ${(props) => (props.isVisible ? "1" : "0")};
-  transform: ${(props) =>
-    props.isVisible ? "translateX(0)" : "translateX(-20px)"};
-  transition: opacity 0.5s ease, transform 0.5s ease;
-
-  &:hover {
-    background-color: #f6f8f9;
-  }
-
-  @media (max-width: 768px) {
-    left: auto; /* Remove the default left position */
-    right: 10px; /* Move it to the right */
-    transition: none; /* Disable transition for mobile */
-  }
-`;
-
-const Header = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 15px;
-  background-color: #f6f8f9;
-
-  button {
-    font-size: 20px;
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    color: #3b566b;
-  }
-
-  button:hover {
-    color: #b0bac0;
+  @media (min-width: 768px) {
+    flex-direction: column; /* Vertical links for laptops */
+    gap: 10px; /* Reduce gap between links for sidebar */
+    margin: 0;
+    padding: 0;
+    align-items: center; /* Center align links */
   }
 `;
 
 const MainContent = styled.div`
   flex-grow: 1;
-  margin-top: ${(props) => (props.isOpen ? "200px" : "50px")};
-  transition: margin-top 0.3s ease;
 
   @media (min-width: 768px) {
-    margin-left: ${(props) => (props.isOpen ? "180px" : "0")};
+    margin-left: 120px; /* Sidebar width */
     margin-top: 0;
   }
 `;

@@ -218,9 +218,9 @@ const Sidebar = styled.div`
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
   @media (max-width: 768px) {
-    width: 100%; /* Full width for smaller screens */
+    width: 95%; /* Full width for smaller screens */
     height: calc(100vh - 50vh); /* Take up remaining space below the map */
-    padding: 10px;
+    padding: 10px !important;
     overflow-y: auto; /* Make the list scrollable */
   }
   padding-left: 40px;
@@ -312,7 +312,6 @@ const MapContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    margin-top: 15px;
     height: 38vh; /* Limit map height */
     z-index: 1; /* Ensure it's above the list */
     margin-bottom: 10px;

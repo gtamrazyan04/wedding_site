@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import styled from "styled-components";
 // import oGImage from "./assets/o_g.jpg";
 import back from "./assets/hintergrundbild.png";
@@ -11,11 +10,7 @@ const Homepage = () => {
 
       <MainContent>
         {/* Intro Section */}
-        <motion.div
-          whileInView={{ x: [-200, 0], opacity: [0, 1] }}
-          transition={{ duration: 0.7 }}
-          className="intro-section"
-        >
+        <div className="intro-section">
           <Title>Willkommen zu unserer Hochzeit!</Title>
           <Date> Am 2. August 2025 in Armenien</Date>
           <Section>
@@ -36,9 +31,9 @@ const Homepage = () => {
           <Section>
             <h2>Locations</h2>
             <p>
-              Überlegt euch, ob Ihr eure Reise mit einer Erkundung Armeniens
+              Überlegt Euch, ob Ihr Eure Reise mit einer Erkundung Armeniens
               verbinden möchtet. Wir haben eine Auswahl an Sehenswürdigkeiten
-              und Restaurants zusammengestellt, die wir euch empfehlen können.
+              und Restaurants zusammengestellt, die wir Euch empfehlen können.
               Einige davon werden noch als <strong>Must-See</strong> markiert,
               damit Ihr nichts vom wichtigsten verpasst!
             </p>
@@ -65,16 +60,7 @@ const Homepage = () => {
             </p>
             <p>Dresscode: Elegant & festlich ☺️</p>
           </Section>
-        </motion.div>
-
-        {/* Image Section
-        <motion.div
-          whileInView={{ opacity: [0, 1] }}
-          transition={{ duration: 0.5 }}
-          className="image-section"
-        >
-          <ProfileImage src={oGImage} alt="Oliver und Gohar" />
-        </motion.div> */}
+        </div>
       </MainContent>
     </PageContainer>
   );
@@ -99,13 +85,12 @@ const MainContent = styled.div`
   max-width: 1200px;
   z-index: 1;
   text-align: justify;
-  padding-left: 60px;
+  padding-left: 100px;
   padding-right: 460px;
   @media (max-width: 768px) {
     flex-direction: column;
     text-align: center;
-    padding: 2rem 1rem;
-    width: 90%;
+    padding: 30px 30px 30px 30px;
   }
 `;
 
@@ -124,7 +109,7 @@ const Title = styled.h1`
 
 const Date = styled.h2`
   font-size: 1.5rem;
-  color: #adb5bd;
+  color: #adbbc2;
   margin-bottom: 40px;
 
   @media (max-width: 768px) {

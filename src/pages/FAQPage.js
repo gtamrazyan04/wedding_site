@@ -30,7 +30,7 @@ const FAQPage = () => {
     <PageContainer>
       <Background />
       <MainContent>
-        <h1>FAQs</h1>
+        <Title>FAQ</Title>
         <h2>Transport & Unterkunft</h2>
         <ul>
           <li>
@@ -66,7 +66,7 @@ const FAQPage = () => {
             <p>
               In Armenien gibt es, ähnlich wie in der Schweiz, öffentlichen
               Verkehr, vor allem Busse. Allerdings fahren diese nicht pünktlich
-              und oft ohne festen Fahrplan. Wir empfehlen euch, die{" "}
+              und oft ohne festen Fahrplan. Wir empfehlen Euch, die{" "}
               <a href={yandexLink} target="_blank" rel="noopener noreferrer">
                 Yandex App
               </a>{" "}
@@ -74,13 +74,13 @@ const FAQPage = () => {
               sehr günstig sind. Über die App könnt Ihr Taxis direkt bestellen
               und seht den Fahrpreis im Voraus. In der Regel kommt ein Taxi
               innerhalb weniger Minuten, und Ihr könnt den aktuellen Standort
-              eures Taxis live verfolgen, während Ihr darauf wartet.
+              Eures Taxis live verfolgen, während Ihr darauf wartet.
             </p>
           </li>
           <li>
             <strong>🛬 Wie komme ich vom Flughafen in meine Unterkunft?</strong>
             <p>
-              Ihr könnt uns kontaktieren mit eurer Ankunftszeit und wir schauen,
+              Ihr könnt uns kontaktieren mit Eurer Ankunftszeit und wir schauen,
               ob wir allenfalls etwas organisieren können. Ansonsten könnt Ihr
               vor Ort direkt ein Taxi mit der{" "}
               <a href={yandexLink} target="_blank" rel="noopener noreferrer">
@@ -164,7 +164,7 @@ const FAQPage = () => {
               >
                 Hier
               </a>{" "}
-              findet Ihr jeweils die aktuellen Kurse pro Bank, und könnt euch so
+              findet Ihr jeweils die aktuellen Kurse pro Bank, und könnt Euch so
               für die Bank mit dem besten Kurs entscheiden. In den meisten
               Geschäften kann man aber auch mit einer Kreditkarte zahlen.
             </p>
@@ -225,20 +225,32 @@ const PageContainer = styled.div`
   min-height: 100vh;
 `;
 
-const MainContent = styled.div`
-  padding: 60px;
+const Title = styled.h1`
+  font-size: 3rem;
+  color: #3b566b;
+  margin-bottom: 10px;
+  text-align: center;
 
-  h1 {
-    color: #3b566b;
+  @media (max-width: 768px) {
     font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
+    margin-bottom: 30px;
+  }
+`;
+
+const MainContent = styled.div`
+  padding: 0px 100px;
+
+  @media (max-width: 768px) {
+    padding: 30px 30px;
   }
 
   h2 {
     font-size: 1.7rem;
     margin-bottom: 30px;
     margin-top: 50px;
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
 
   ul {

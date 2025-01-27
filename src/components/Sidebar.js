@@ -98,11 +98,11 @@ const SidebarContainer = styled.div`
       a {
         text-decoration: none;
         font-weight: bold;
-        color: #0077b6;
+        color: #3b566b;
       }
 
       a:hover {
-        color: #75c0d5;
+        color: #b0bac0;
       }
     }
   }
@@ -114,7 +114,7 @@ const MenuIcon = styled.div`
   left: 10px; /* Default position for larger screens */
   font-size: 30px;
   cursor: pointer;
-  color: #0077b6;
+  color: #3b566b;
   font-weight: bold;
   padding: 5px 12px;
   border-radius: 4px;
@@ -124,7 +124,7 @@ const MenuIcon = styled.div`
   transition: opacity 0.5s ease, transform 0.5s ease;
 
   &:hover {
-    background-color: #f0f8ff;
+    background-color: #f6f8f9;
   }
 
   @media (max-width: 768px) {
@@ -139,18 +139,18 @@ const Header = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding: 15px;
-  background-color: #f0f8ff;
+  background-color: #f6f8f9;
 
   button {
     font-size: 20px;
     cursor: pointer;
     border: none;
     background-color: transparent;
-    color: #0077b6;
+    color: #3b566b;
   }
 
   button:hover {
-    color: #75c0d5;
+    color: #b0bac0;
   }
 `;
 

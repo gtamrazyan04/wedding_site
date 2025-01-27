@@ -86,7 +86,7 @@ const FAQPage = () => {
               <a href={yandexLink} target="_blank" rel="noopener noreferrer">
                 Yandex App
               </a>{" "}
-              bestellen.
+              bestellen. Es gibt eine offene WLAN-Verbindung am Flughafen.
             </p>
           </li>
         </ul>
@@ -229,7 +229,7 @@ const MainContent = styled.div`
   padding: 60px;
 
   h1 {
-    color: #0077b6;
+    color: #3b566b;
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
@@ -249,7 +249,7 @@ const MainContent = styled.div`
 
   li {
     margin-bottom: 20px;
-    background-color: #f9f9f9;
+    background-color: #f6f8f9;
     padding: 15px 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -257,7 +257,7 @@ const MainContent = styled.div`
 
   strong {
     display: block;
-    color: #0077b6;
+    color: #3b566b;
     font-size: 1.2rem;
     margin-bottom: 8px;
   }
@@ -270,13 +270,13 @@ const MainContent = styled.div`
   }
 
   a {
-    color: #0077b6;
+    color: #3b566b;
     text-decoration: none;
     font-weight: bold;
   }
 
   a:hover {
-    color: #00b4d8;
+    color: #b0bac0;
     text-decoration: underline;
   }
 `;

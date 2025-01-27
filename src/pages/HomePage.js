@@ -111,7 +111,7 @@ const MainContent = styled.div`
 
 const Title = styled.h1`
   font-size: 3rem;
-  color: #0077b6;
+  color: #3b566b;
   margin-bottom: 10px;
 
   @media (max-width: 768px) {
@@ -124,7 +124,7 @@ const Title = styled.h1`
 
 const Date = styled.h2`
   font-size: 1.5rem;
-  color: #0077b6;
+  color: #adb5bd;
   margin-bottom: 40px;
 
   @media (max-width: 768px) {
@@ -139,7 +139,7 @@ const Section = styled.div`
 
   h2 {
     font-size: 1.8rem;
-    color: #0077b6;
+    color: #3b566b;
     margin-bottom: 10px;
     display: flex;
     align-items: center;

@@ -213,7 +213,7 @@ const GroupHeader = styled.div`
 
 const Sidebar = styled.div`
   width: 300px;
-  background: #f8f9fa;
+  background: #f6f8f9;
   overflow-y: auto;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -283,7 +283,7 @@ const LocationItem = styled.div`
       a,
       button {
         font-size: 0.85rem;
-        color: #0077b6;
+        color: #b0bac0;
         text-decoration: none;
         border: none;
         background: none;
@@ -292,7 +292,7 @@ const LocationItem = styled.div`
         align-items: center;
 
         &:hover {
-          color: #005f8a;
+          color: #3b566b;
         }
       }
       button {

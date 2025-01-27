@@ -1,0 +1,5 @@
+
+lightest: #f6f8f9
+gray light: #e1e5e9;
+darker grayish: #b0bac0;
+blue: #3b566b;

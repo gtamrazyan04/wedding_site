@@ -31,15 +31,20 @@ const LocationsPage = () => {
     }
   };
   const [activeMap, setActiveMap] = useState(locations[0].embed); // Default to the first location
+  const [isTourVisible, setIsTourVisible] = useState(true);
   const [isRestaurantVisible, setIsRestaurantVisible] = useState(true);
   const [isSehenswurdigkeitVisible, setIsSehenswurdigkeitVisible] =
     useState(true);
+
+  const tours = locations.filter((location) => location.type === "Tour");
+
   const restaurants = locations.filter(
     (location) => location.type === "Restaurant"
   );
   const sehenswurdigkeiten = locations.filter(
     (location) => location.type === "Sehenswürdigkeit"
   );
+  const toggleTours = () => setIsTourVisible(!isTourVisible);
   const toggleRestaurants = () => setIsRestaurantVisible(!isRestaurantVisible);
   const toggleSehenswurdigkeiten = () =>
     setIsSehenswurdigkeitVisible(!isSehenswurdigkeitVisible);
@@ -47,6 +52,67 @@ const LocationsPage = () => {
   return (
     <PageContainer>
       <Sidebar>
+        {/* Touren Group */}
+        <GroupContainer>
+          <GroupHeader onClick={toggleTours}>
+            <span>{isTourVisible ? "▼" : "▶"}</span> Reisebüros
+          </GroupHeader>
+          {isTourVisible && (
+            <LocationList>
+              {tours.map((location, index) => (
+                <LocationItem
+                  must={location.must}
+                  key={index}
+                  onClick={() => setActiveMap(location.embed)}
+                >
+                  <img src={location.image} alt={location.name} />
+                  <div className="details">
+                    <h3>{location.name}</h3>
+                    <p>{location.description}</p>
+                    <div className="buttons">
+                      <a
+                        href={location.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <FontAwesomeIcon icon={faGlobe} />
+                      </a>
+                      {location.googleMaps != "" && (
+                        <a
+                          href={location.googleMaps}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          <FontAwesomeIcon icon={faMapMarkerAlt} />
+                        </a>
+                      )}
+                      {/* <button
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            toggleFavorite(location);
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faHeart}
+                            color={
+                              favorites.some(
+                                (fav) => fav.name === location.name
+                              )
+                                ? "red"
+                                : "gray"
+                            }
+                          />
+                        </button> */}
+                    </div>
+                  </div>
+                </LocationItem>
+              ))}
+            </LocationList>
+          )}
+        </GroupContainer>
+
         {/* Restaurants Group */}
         <GroupContainer>
           <GroupHeader onClick={toggleRestaurants}>
@@ -57,6 +123,7 @@ const LocationsPage = () => {
               {restaurants.map((location, index) => (
                 <LocationItem
                   key={index}
+                  must={location.must}
                   onClick={() => setActiveMap(location.embed)}
                 >
                   <img src={location.image} alt={location.name} />
@@ -116,6 +183,7 @@ const LocationsPage = () => {
               {sehenswurdigkeiten.map((location, index) => (
                 <LocationItem
                   key={index}
+                  must={location.must}
                   onClick={() => setActiveMap(location.embed)}
                 >
                   <img src={location.image} alt={location.name} />
@@ -242,9 +310,9 @@ const LocationList = styled.div`
     gap: 10px; /* Weniger Abstand auf kleinen Bildschirmen */
   }
 `;
-
 const LocationItem = styled.div`
   display: flex;
+  position: relative; /* To position the star */
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -299,6 +367,16 @@ const LocationItem = styled.div`
         margin-left: 70px;
       }
     }
+  }
+
+  /* Blue star for 'must' locations */
+  &::before {
+    content: "★";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 16px;
+    color: ${(props) => (props.must ? "#3b566b" : "transparent")};
   }
 `;
 

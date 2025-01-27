@@ -97,8 +97,9 @@ const FAQPage = () => {
               🥘 Wie ist das Essen im Vergleich zur Mitteleuropäischen Küche?
             </strong>
             <p>
-              Laut Oliver ist das Essen in Armenien sehr nahe bei unserer Küche
-              (auch nicht speziell scharf).
+              Laut Oliver ist armenisches Essen sehr nahe bei der Euch bekannten
+              Küche (auch nicht speziell scharf). Natürlich mit neuen
+              Spezialitäten. 😉
             </p>
           </li>
           <li>
@@ -206,6 +207,33 @@ const FAQPage = () => {
             <p>
               Armenien ist ein sicheres Land, am Tag wie auch in der Nacht, in
               dem man ohne Bedenken (auch als Frau) alleine unterwegs sein kann.
+            </p>
+          </li>
+          <li>
+            <strong>🚨 Notfallnummern</strong>
+            <p> - 101 Feuerwehr</p>
+            <p> - 102 Polizei </p>
+            <p> - 103 Rettungsdienst </p>
+            <p> - 911 Allgemeine landesweite Notrufnummer </p>
+          </li>
+          <li>
+            <strong>💡 Randbemerkungen</strong>
+            <p>Impfungen sind keine nötig.</p>
+            <p>
+              Infos zu Steckdosen sind{" "}
+              <a
+                href="https://www.welt-steckdosen.de/ch/armenien/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                hier
+              </a>{" "}
+              zu finden.
+            </p>
+            <p>Telefonvorwahl in Armenien: +374.</p>
+            <p>
+              Zeitverschiebung: aktuell +3h Unterschied zur Schweiz, im Sommer
+              nur +2h.
             </p>
           </li>
         </ul>

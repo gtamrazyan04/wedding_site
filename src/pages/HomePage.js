@@ -86,7 +86,7 @@ const MainContent = styled.div`
   z-index: 1;
   text-align: justify;
   padding-left: 100px;
-  padding-right: 460px;
+  padding-right: 35%;
   @media (max-width: 768px) {
     flex-direction: column;
     text-align: center;

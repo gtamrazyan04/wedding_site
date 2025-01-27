@@ -24,10 +24,12 @@ const Homepage = () => {
               Teil unseres besonderen Tages sein möchtet. Auf dieser Website
               findet Ihr die wichtigsten Informationen und bereits Antworten zu
               einigen Fragen. Die Website wird laufend aktualisiert.
-              <strong>O & G</strong> werden einige Wochen vor und nach der
-              Hochzeit bereits in Armenien sein. Einige Gäste planen auch, Ihre
-              Reise mit touristischen Ferien zu verbinden und früher anzureisen
-              oder später abzureisen.
+            </p>
+            <p>
+              <strong> O & G</strong> werden einige Wochen vor und nach der
+              Hochzeit in Armenien sein. Einige Gäste planen auch, Ihre Reise
+              mit touristischen Ferien zu verbinden und früher anzureisen
+              und/oder später abzureisen.
             </p>
           </Section>
 
@@ -116,6 +118,7 @@ const Title = styled.h1`
     width: 70%;
     font-size: 2rem;
     text-align: left;
+    margin-bottom: 30px;
   }
 `;
 
@@ -126,6 +129,7 @@ const Date = styled.h2`
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
+    text-align: left;
   }
 `;
 
@@ -170,7 +174,8 @@ const Background = styled.div`
   opacity: 0.9;
   z-index: -1;
   @media (max-width: 768px) {
-    margin-top: -600px;
+    position: absolute;
+    background-position: top; /* Moves the background up by 50px */
     background-size: contain;
   }
 `;

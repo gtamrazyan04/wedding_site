@@ -254,7 +254,7 @@ const LocationItem = styled.div`
 
   img {
     width: 90px;
-    height: 90px;
+    height: auto;
     object-fit: cover;
   }
 

@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import back from "./assets/hintergrundbild_ohne.png";
 
 const FAQPage = () => {
+  const [yandexLink, setYandexLink] = useState("");
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      // iOS-Gerät erkannt
+      setYandexLink(
+        "https://apps.apple.com/ch/app/yandex-go-taxi-food-delivery/id472650686"
+      );
+    } else if (/android/i.test(userAgent)) {
+      // Android-Gerät erkannt
+      setYandexLink(
+        "https://play.google.com/store/apps/details?id=ru.yandex.taxi"
+      );
+    } else {
+      // Fallback-Link
+      setYandexLink(
+        "https://yandex.com/support/yandex-app-android-alice/en/app/install"
+      );
+    }
+  }, []);
+
   return (
     <PageContainer>
       <Background />
@@ -33,7 +56,7 @@ const FAQPage = () => {
               >
                 Airbnb
               </a>
-              . Am besten bucht Ihr etwas in der Hauptstadt Yerevan. Dort seit
+              . Am besten bucht Ihr etwas in der Hauptstadt Yerevan. Dort seid
               Ihr am zentralsten und erreicht das meiste in kürzester Zeit.
             </p>
           </li>
@@ -44,11 +67,7 @@ const FAQPage = () => {
               In Armenien gibt es, ähnlich wie in der Schweiz, öffentlichen
               Verkehr, vor allem Busse. Allerdings fahren diese nicht pünktlich
               und oft ohne festen Fahrplan. Wir empfehlen euch, die{" "}
-              <a
-                href="https://yandex.com/support/yandex-app-android-alice/en/app/install"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={yandexLink} target="_blank" rel="noopener noreferrer">
                 Yandex App
               </a>{" "}
               herunterzuladen und mit dem Taxi zu reisen, da die Preise dort
@@ -62,13 +81,9 @@ const FAQPage = () => {
             <strong>🛬 Wie komme ich vom Flughafen in meine Unterkunft?</strong>
             <p>
               Ihr könnt uns kontaktieren mit eurer Ankunftszeit und wir schauen,
-              ob wir etwas organisieren können. Ansonsten könnt Ihr vor Ort
-              direkt ein Taxi mit der{" "}
-              <a
-                href="https://yandex.com/support/yandex-app-android-alice/en/app/install"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              ob wir allenfalls etwas organisieren können. Ansonsten könnt Ihr
+              vor Ort direkt ein Taxi mit der{" "}
+              <a href={yandexLink} target="_blank" rel="noopener noreferrer">
                 Yandex App
               </a>{" "}
               bestellen.
@@ -125,8 +140,16 @@ const FAQPage = () => {
               >
                 Vivacell
               </a>{" "}
-              gemacht. Die Preise sind sehr günstig und es lohnt sich zur
-              Sicherheit immer eine Netzwerkverbindung zu haben.
+              gemacht. Die Preise sind sehr günstig (siehe{" "}
+              <a
+                href="https://www.viva.am/en/individual-customers/tariff-plans"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                hier
+              </a>
+              ) und es lohnt sich zur Sicherheit immer eine Netzwerkverbindung
+              zu haben.
             </p>
           </li>
           <li>
@@ -150,9 +173,9 @@ const FAQPage = () => {
             <strong>💵 Wie sind die Preise in Armenien?</strong>
             <p>
               Im Vergleich zu der Schweiz sind die Preise in Armenien günstig -
-              aber auch nicht in allen Bereichen. Ein Coiffeurtermin lohnt sich
-              aber sehr😉, ein Frauenhaarschnitt (inkl. Waschen) kostet zwischen
-              5 und 10 Franken.
+              aber auch nicht in allen Bereichen. Geheimtipp: Ein Coiffeurtermin
+              lohnt sich sehr😉, ein Frauenhaarschnitt (inkl. Waschen) kostet
+              zwischen 5 und 10 Franken.
             </p>
           </li>
           <li>
@@ -166,20 +189,17 @@ const FAQPage = () => {
           <li>
             <strong>☀️ Wie ist das Wetter in Armenien im August?</strong>
             <p>
-              Meist ziemlich heiss. Also bitte genug kurze Kleidung mitnehmen✨.
-              Das Nachtleben in Armenien ist sehr aktiv, sehr oft geht man am
-              Abend, wenns dann frisch wird noch spazieren etc. Ausserdem sind
-              einige Sehenswürdigkeiten sowie Städte (wie z.B. Dilijan) etwas
-              höher gelegen und recht frisch. Also eine Jacke und ein Paar lange
-              Hosen mitzunehmen schadet nicht 😊.
+              Im August meist ziemlich heiss. Also bitte genug kurze Kleidung
+              mitnehmen✨. Das Nachtleben in Armenien ist sehr aktiv, sehr oft
+              geht man am Abend, wenns dann frisch wird noch spazieren etc.
+              Ausserdem sind einige Sehenswürdigkeiten sowie Städte (wie z.B.
+              Dilijan) etwas höher gelegen und recht frisch. Also eine Jacke und
+              ein Paar lange Hosen mitzunehmen schadet nicht 😊.
             </p>
           </li>
           <li>
             <strong>👩‍⚕️ Finde ich dort Apotheken?</strong>
-            <p>
-              Die meisten Apotheken sind 24h geöffnet und geben oft Medikamente
-              auch ohne Rezepte (ohne Gewähr).
-            </p>
+            <p>Ja, die meisten Apotheken sind sogar 24h geöffnet.</p>
           </li>
           <li>
             <strong>👍🏻 Wie sieht es aus mit der Sicherheit im Land?</strong>

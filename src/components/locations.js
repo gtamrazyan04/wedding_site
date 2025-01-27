@@ -122,7 +122,7 @@ export const locations = [
     name: "Matenadaran",
     description: "Zentralarchiv für alte Manuskripte",
     image: "./assets/matenadaran.jpg",
-    website: "http://matenadaran.am/en/matenadaran/home/",
+    website: "",
     googleMaps: "https://maps.app.goo.gl/ap4zGyCkEmWj7upCA",
     embed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.769718748258!2d44.5159856881493!3d40.19193799575667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abd20f0977ad9%3A0x7f2158e0bb6e6dd7!2sMatenadaran!5e0!3m2!1sen!2sch!4v1737897398502!5m2!1sen!2sch",

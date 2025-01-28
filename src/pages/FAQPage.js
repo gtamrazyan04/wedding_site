@@ -34,8 +34,12 @@ const FAQPage = () => {
         <h2>Transport & Unterkunft</h2>
         <ul>
           <li>
-            <strong>🇨🇭 Brauche ich als Schweizer ein Visum?</strong>
-            <p>Nein.</p>
+            <strong>🛂 Brauche ich ein Visum?</strong>
+            <p>
+              Bürger von Schengen-Staaten (Schweiz, Deutschland,...) brauchen
+              kein Visum. Wenn Ihr Euch nicht sicher seid, dürft Ihr uns gerne
+              fragen.
+            </p>
           </li>
           <li>
             <strong>👩‍💻 Wo buche ich am besten eine Unterkunft?</strong>
@@ -228,7 +232,7 @@ const FAQPage = () => {
               >
                 hier
               </a>{" "}
-              zu finden.
+              zu finden. Kurzgesagt: ist wie in Deutschland.
             </p>
             <p>Telefonvorwahl in Armenien: +374.</p>
             <p>

@@ -83,6 +83,19 @@ export const locations = [
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.129733144513!2d44.514140999999995!3d40.1839262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abdc6a552cd6f%3A0xb6e7edd4eaf7d3a7!2sKamancha!5e0!3m2!1sen!2sch!4v1737899404930!5m2!1sen!2sch",
     must: false,
   },
+
+  {
+    type: "Sehenswürdigkeit",
+    name: "Republic Square",
+    description: "Tanzende Fontänen ab 21 Uhr ",
+    image: "./assets/republic_square.jpg",
+    website:
+      "https://www.tripadvisor.com/Attraction_Review-g293932-d2045366-Reviews-Republic_Square-Yerevan.html",
+    googleMaps: "https://maps.app.goo.gl/v2pD3d4DvQYFSSjB7",
+    embed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.410031245189!2d44.5126406!3d40.1776875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abcfa28499691%3A0x2bde14d127166c74!2sRepublic%20Square!5e0!3m2!1sen!2sch!4v1737897621244!5m2!1sen!2sch",
+    must: true,
+  },
   {
     type: "Sehenswürdigkeit",
     name: "Northern Avenue",
@@ -93,7 +106,7 @@ export const locations = [
     googleMaps: "https://maps.app.goo.gl/SQz59DWQGhAWzBzs9",
     embed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.246274186285!2d44.514587199999994!3d40.181332399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abce3504f4edd%3A0x120a99b9487840ea!2sHyusisayin%20poghota%2C%20Yerevan%2C%20Armenia!5e0!3m2!1sen!2sch!4v1737897749912!5m2!1sen!2sch",
-    must: false,
+    must: true,
   },
   {
     type: "Sehenswürdigkeit",
@@ -105,18 +118,6 @@ export const locations = [
     googleMaps: "https://maps.app.goo.gl/B6zBANg4i5asAbEQ8",
     embed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.806905668001!2d44.510750988148864!3d40.191110495807365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abd218c0499f7%3A0x54165e8b3d0b54c3!2sCascade%20Complex!5e0!3m2!1sen!2sch!4v1737897581385!5m2!1sen!2sch",
-    must: true,
-  },
-  {
-    type: "Sehenswürdigkeit",
-    name: "Republic Square",
-    description: "Tanzende Fontänen ab 21 Uhr ",
-    image: "./assets/republic_square.jpg",
-    website:
-      "https://www.tripadvisor.com/Attraction_Review-g293932-d2045366-Reviews-Republic_Square-Yerevan.html",
-    googleMaps: "https://maps.app.goo.gl/v2pD3d4DvQYFSSjB7",
-    embed:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.410031245189!2d44.5126406!3d40.1776875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abcfa28499691%3A0x2bde14d127166c74!2sRepublic%20Square!5e0!3m2!1sen!2sch!4v1737897621244!5m2!1sen!2sch",
     must: true,
   },
   {

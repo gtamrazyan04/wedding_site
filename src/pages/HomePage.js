@@ -11,7 +11,7 @@ const Homepage = () => {
       <MainContent>
         {/* Intro Section */}
         <div className="intro-section">
-          <Title>Willkommen zu unserer Hochzeit!</Title>
+          <Title>Willkommen zur OG-Hochzeit!</Title>
           <Date> Am 2. August 2025 in Armenien</Date>
           <Section>
             <p>
@@ -23,8 +23,9 @@ const Homepage = () => {
             <p>
               <strong> O & G</strong> werden einige Wochen vor und nach der
               Hochzeit in Armenien sein. Einige Gäste planen auch, Ihre Reise
-              mit touristischen Ferien zu verbinden und früher anzureisen
-              und/oder später abzureisen.
+              mit touristischen Ausflügen zu verbinden und früher anzureisen
+              und/oder später abzureisen. Nutze auch Du die Chance, einzigartige
+              Ferien in Armenien zu verbringen!
             </p>
           </Section>
 
@@ -32,10 +33,12 @@ const Homepage = () => {
             <h2>Locations</h2>
             <p>
               Überlegt Euch, ob Ihr Eure Reise mit einer Erkundung Armeniens
-              verbinden möchtet. Wir haben eine Auswahl an Sehenswürdigkeiten
-              und Restaurants zusammengestellt, die wir Euch empfehlen können.
-              Einige davon werden noch als <strong>Must-See</strong> markiert,
-              damit Ihr nichts vom wichtigsten verpasst!
+              verbinden möchtet. Wir haben eine Auswahl an Reisebüros,
+              Restaurants und Sehenswürdigkeiten zusammengestellt, die wir Euch
+              empfehlen können. Einige davon sind als{" "}
+              <strong>Must-See ⭐️</strong> markiert, damit Ihr nichts vom
+              Wichtigsten verpasst! Die Liste wird noch angepasst im Laufe der
+              Zeit.
             </p>
           </Section>
 
@@ -121,6 +124,9 @@ const Date = styled.h2`
 const Section = styled.div`
   margin-bottom: 40px;
   text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
 
   h2 {
     font-size: 1.8rem;
@@ -133,7 +139,7 @@ const Section = styled.div`
 
   p {
     font-size: 18px;
-    line-height: 1.8;
+    line-height: 1.6rem;
   }
 
   a {

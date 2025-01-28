@@ -16,6 +16,9 @@ const Sidebar = ({ children }) => {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="/trailer">Trailer</Link>
+          </li>
+          <li>
             <Link to="/locations">Locations</Link>
           </li>
           <li>
@@ -50,7 +53,7 @@ const Header = styled.div`
   border-bottom: 2px solid #d6e6f2;
   z-index: 10;
   @media (max-width: 768px) {
-    padding-right: 40px;
+    padding-right: 20px;
   }
 
   @media (min-width: 768px) {
@@ -91,7 +94,7 @@ const Logo = styled.img`
 const NavLinks = styled.ul`
   list-style: none;
   display: flex;
-  gap: 20px; /* Horizontal gap for phones */
+  gap: 15px; /* Horizontal gap for phones */
   margin: 0;
   padding: 0;
 

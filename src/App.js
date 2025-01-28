@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import VenuePage from "./pages/VenuePage";
 import LocationsPage from "./pages/LocationsPage";
 import FAQPage from "./pages/FAQPage";
+import TrailerPage from "./pages/TrailerPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/venue" element={<VenuePage />} />
           <Route path="/locations" element={<LocationsPage />} />
           <Route path="/faq" element={<FAQPage />} />
+          <Route path="/trailer" element={<TrailerPage />} />
         </Routes>
       </Sidebar>
     </Router>
